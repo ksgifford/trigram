@@ -19,4 +19,21 @@ had formerly been in part my own."""
 
 def test_read_file():
     from trigrams import read_file
-    assert TEST_TEXT in read_file("testing.txt")
+    assert TEST_TEXT in read_file("example.txt")
+
+
+def test_parse_text():
+    from trigrams import parse_text
+    assert parse_text("One\ntwo\nthree") == ["One", "two", "three"]
+
+
+def test_create_trigram():
+    from trigrams import create_trigram
+    word_list = ["I", "wish", "I", "may", "I", "wish", "I", "might"]
+    expected = {
+        ("I", "wish"): ["I", "I"],
+        ("wish", "I"): ["may", "might"],
+        ("may", "I"): ["wish"],
+        ("I", "may"): ["I"]
+    }
+    assert create_trigram(word_list) == expected
