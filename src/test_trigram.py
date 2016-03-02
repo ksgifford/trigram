@@ -19,4 +19,4 @@ had formerly been in part my own."""
 
 def test_read_file():
     from trigrams import read_file
-    assert TEST_TEXT in read_file("testing.txt")
+    assert TEST_TEXT in read_file("example.txt")

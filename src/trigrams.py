@@ -6,7 +6,10 @@ def main(source_file, generation_amt):
 
 
 def read_file(source_file):
-    pass
+    wrapper = io.open(source_file, mode='r')
+    source_text = wrapper.read()
+    wrapper.close()
+    return source_text
 
 
 def parse_text(raw_text):

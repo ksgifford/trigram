@@ -1,5 +1,12 @@
 # Copied from template at https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore
-testing.txt
+
+# Mac OSX crap
+.DS_Store
+
+# Text files for trigram generation
+raw_text.txt
+example.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
