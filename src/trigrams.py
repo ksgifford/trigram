@@ -13,7 +13,8 @@ def read_file(source_file):
 
 
 def parse_text(raw_text):
-    pass
+    word_list = raw_text.replace('\n', ' ').split()
+    return word_list
 
 
 def create_trigram(text):

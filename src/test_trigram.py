@@ -20,3 +20,8 @@ had formerly been in part my own."""
 def test_read_file():
     from trigrams import read_file
     assert TEST_TEXT in read_file("example.txt")
+
+
+def test_parse_text():
+    from trigrams import parse_text
+    assert parse_text("One\ntwo\nthree") == ["One", "two", "three"]
