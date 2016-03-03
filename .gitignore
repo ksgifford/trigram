@@ -6,6 +6,7 @@
 # Text files for trigram generation
 raw_text.txt
 example.txt
+result.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

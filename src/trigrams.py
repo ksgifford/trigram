@@ -48,10 +48,9 @@ def create_paragraph(trigram_dict, word_count):
             # continue
 
         paragraph += ' ' + random.choice(trigram_dict[(second_to_last, last)])
-
-    print(paragraph)
     return paragraph
 
 
 if __name__ == '__main__':
-    main(sys.argv[1], int(sys.argv[2]))
+    paragraph = main(sys.argv[1], int(sys.argv[2]))
+    print(paragraph)
