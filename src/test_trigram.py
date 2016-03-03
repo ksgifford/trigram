@@ -37,3 +37,18 @@ def test_create_trigram():
         ("I", "may"): ["I"]
     }
     assert create_trigram(word_list) == expected
+
+
+def test_create_paragraph():
+    from trigrams import create_paragraph
+    trigram = {
+        ("I", "wish"): ["I", "I"],
+        ("wish", "I"): ["may", "might"],
+        ("may", "I"): ["wish"],
+        ("I", "may"): ["I"]
+    }
+    expected = "I wish I may I wish I"
+    word_count = len(expected)
+    print(create_paragraph(trigram, word_count))
+    return
+    assert create_paragraph(trigram, word_count) == expected
