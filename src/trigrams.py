@@ -20,11 +20,20 @@ def read_file(source_file):
     return source_text
 
 
-def parse_text(raw_text):
+def parse_text(raw_text, alpha_only=False):
     """Scrub raw text from source file to reformat '_' and '\n' characters."""
 
     # TODO: What about quotes and other special characters? Could write a
     # separate function just for scrubbing.
+    if alpha_only:
+        scrubbed_text = ""
+        for char in raw_text:
+            if char.isalnum() or char == " ":
+                scrubbed_text += char
+            else:
+                scrubbed_text += " "
+        raw_text = scrubbed_text
+
     word_list = raw_text.replace("_", "").split()
     return word_list
 

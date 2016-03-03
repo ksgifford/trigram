@@ -26,7 +26,12 @@ def test_read_file():
 def test_parse_text():
     """Tests parse_text to ensure proper handling of new lines and spaces."""
     from trigrams import parse_text
+
+    input_text = "He sent the%%2 hungry \r\nboys   home."
+    expected_result = ["He", "sent", "the", "2", "hungry", "boys", "home"]
+
     assert parse_text("One\ntwo three") == ["One", "two", "three"]
+    assert parse_text(input_text, True) == expected_result
 
 
 def test_create_trigram():
