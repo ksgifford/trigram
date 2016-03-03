@@ -22,6 +22,9 @@ def read_file(source_file):
 
 def parse_text(raw_text):
     """Scrub raw text from source file to reformat '_' and '\n' characters."""
+
+    # TODO: What about quotes and other special characters? Could write a
+    # separate function just for scrubbing.
     word_list = raw_text.replace("_", "").replace('\n', ' ').split()
     return word_list
 
@@ -29,6 +32,9 @@ def parse_text(raw_text):
 def create_trigram(word_list):
     """Generate a list of three-word tuples from parsed text."""
     """Convert list of tuples to trigrams and populate trigram dict."""
+
+    # Found some examples of using the zip() method to create n-grams here:
+    # http://locallyoptimal.com/blog/2013/01/20/elegant-n-gram-generation-in-python/
     word_tuples = list(zip(word_list, word_list[1:], word_list[2:]))
     trigram_dict = {}
     for item0, item1, item2 in word_tuples:
