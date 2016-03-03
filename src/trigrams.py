@@ -1,8 +1,13 @@
 import io
+import random
 
 
-def main(source_file, generation_amt):
-    pass
+def main(source_file, word_count):
+    raw_text = read_file(source_file)
+    parsed = parse_text(raw_text)
+    trigram = create_trigram(parsed)
+    paragraph = create_paragraph(trigram, word_count)
+    return paragraph
 
 
 def read_file(source_file):
@@ -26,6 +31,25 @@ def create_trigram(word_list):
         else:
             trigram_dict[(item0, item1)] = [item2]
     return trigram_dict
+
+
+def create_paragraph(trigram_dict, word_count):
+    keys = list(trigram_dict.keys())
+    random_key = random.choice(keys)
+    paragraph = ' '.join(random_key)
+    # ('hello', 'world') => 'hello world'
+
+    while len(paragraph.split()) <= word_count:
+        second_to_last, last = paragraph.split()[-2:]
+
+        if not trigram_dict.get((second_to_last, last)):
+            second_to_last, last = random.choice(keys)
+            # continue
+
+        paragraph += ' ' + random.choice(trigram_dict[(second_to_last, last)])
+
+    print(paragraph)
+    return paragraph
 
 
 if __name__ == '__main__':
