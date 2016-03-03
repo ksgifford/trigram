@@ -56,8 +56,12 @@ def test_create_paragraph():
         ("may", "I"): ["wish"],
         ("I", "may"): ["I"]
     }
+    trigram2 = {
+        ("1", "1"): ["1"],
+    }
     # Because create_paragraph() contains random choice elements, we cannot
     # test against an exact string output. These asserts check that the
     # output string matches the specified word count & is of the correct type.
     assert len(create_paragraph(trigram, 10).split()) == 10
     assert type(create_paragraph(trigram, 10)) == str
+    assert create_paragraph(trigram2, 10) == "1 1 1 1 1 1 1 1 1 1"
