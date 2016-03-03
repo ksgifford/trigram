@@ -1,5 +1,6 @@
 import io
 import random
+import sys
 
 
 def main(source_file, word_count):
@@ -53,4 +54,4 @@ def create_paragraph(trigram_dict, word_count):
 
 
 if __name__ == '__main__':
-    main("raw_text.txt", 500)
+    main(sys.argv[1], int(sys.argv[2]))
