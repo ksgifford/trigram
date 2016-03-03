@@ -25,7 +25,7 @@ def parse_text(raw_text):
 
     # TODO: What about quotes and other special characters? Could write a
     # separate function just for scrubbing.
-    word_list = raw_text.replace("_", "").replace('\n', ' ').split()
+    word_list = raw_text.replace("_", "").split()
     return word_list
 
 
