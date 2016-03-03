@@ -18,7 +18,7 @@ def read_file(source_file):
 
 
 def parse_text(raw_text):
-    word_list = raw_text.replace('\n', ' ').split()
+    word_list = raw_text.replace("_", "").replace('\n', ' ').split()
     return word_list
 
 
@@ -53,4 +53,4 @@ def create_paragraph(trigram_dict, word_count):
 
 
 if __name__ == '__main__':
-    main()
+    main("raw_text.txt", 500)
