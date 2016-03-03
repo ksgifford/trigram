@@ -18,16 +18,19 @@ had formerly been in part my own."""
 
 
 def test_read_file():
+    """Tests read_file() against established text sample."""
     from trigrams import read_file
     assert TEST_TEXT in read_file("example.txt")
 
 
 def test_parse_text():
+    """Tests parse_text to ensure proper handling of new lines and spaces."""
     from trigrams import parse_text
-    assert parse_text("One\ntwo\nthree") == ["One", "two", "three"]
+    assert parse_text("One\ntwo three") == ["One", "two", "three"]
 
 
 def test_create_trigram():
+    """Tests create_trigram() for creation of trigrams from word list."""
     from trigrams import create_trigram
     word_list = ["I", "wish", "I", "may", "I", "wish", "I", "might"]
     expected = {
@@ -40,6 +43,7 @@ def test_create_trigram():
 
 
 def test_create_paragraph():
+    """Tests create_paragraph() output for proper length and type."""
     from trigrams import create_paragraph
     trigram = {
         ("I", "wish"): ["I", "I"],
@@ -47,8 +51,8 @@ def test_create_paragraph():
         ("may", "I"): ["wish"],
         ("I", "may"): ["I"]
     }
-    expected = "I wish I may I wish I"
-    word_count = len(expected)
-    print(create_paragraph(trigram, word_count))
-    return
-    assert create_paragraph(trigram, word_count) == expected
+    # Because create_paragraph() contains random choice elements, we cannot
+    # test against an exact string output. These asserts check that the
+    # output string matches the specified word count & is of the correct type.
+    assert len(create_paragraph(trigram, 10).split()) == 10
+    assert type(create_paragraph(trigram, 10)) == str
