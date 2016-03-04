@@ -85,3 +85,6 @@ target/
 
 # dotenv
 .env
+
+# My stuff
+whiteboard/
